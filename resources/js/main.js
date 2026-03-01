@@ -28,6 +28,8 @@ con.send();
 
 
 ///////////////    ⁡⁢⁣⁣AUTO FILL⁡   //////////////
+let colors=["Izaberite boju"]
+let categories=[]
 for(block of blocks){
     $("#blocks").append(`
 
@@ -44,6 +46,7 @@ for(block of blocks){
         }
     })
     if(ima==false){
+        colors.push(block.color)
         $("#color").append(`
     
             <option>`+
@@ -54,14 +57,14 @@ for(block of blocks){
     ima=false
 }
 let appText
+let displayedItem=[]
 function appSve(){
-    console.log("SVE");
     
     $(".catalog").text("")
     for(block of blocks){
+        // console.log("Ubaci");
         Append()
-        
-    }
+    }  
 }
 appSve()
 
@@ -74,6 +77,7 @@ for(block of blocks){
         }
     })
     if(hasCategory==false){
+        categories.push(block.category)
         $("#category").append(`
             <div>
                 <input type="checkbox" value="`+block.category+`" id="`+block.category+`""></input>
@@ -114,33 +118,47 @@ function Append(){
         `
         appText+=`</div>`
         $(".catalog").append(appText)
+
+
 }
+
 function ShowItems(){
     $(".catalog").text("")
     let x=JSON.parse(localStorage.getItem("filter"))
-    for(block of blocks){
-        console.log("BOJA="+x[0].color);
-        console.log("CAT= "+x[1][0].category);
-        
-        
+    
+    for(block of blocks){     
+
         if(x[0].color=="Izaberite boju" && x[1][0].category=="sve"){
            appSve()
+        //    console.log("SVE");
         }
-        for(cat of x[1]){
-            if(block.category==cat.category){
+        else{
+            // console.log(displayedItem);
+            for(cat of x[1]){
+                if(block.category==cat.category){
+                    Append()
+                    console.log("--------------------");
+                    displayedItem.push(block.name)
+                }
+            }
+            ///////////// ⁡⁢⁣⁣OVDE SAM STAO⁡ /////////////
+            if(block.color==x[0].color ){
                 Append()
+                displayedItem.push(block.name)
+            }
+
+            for(item of displayedItem){
+                console.log("OK= "+item);
+                if(block.name!=item){
+                }
+                // console.log("Item= "+item +" "+ block.name);
             }
         }
-        // || block.category==x[1][0].category
-        if(block.color==x[0].color ){
-            Append()
-        }
     }
-        
+    displayedItem=[]        
 }
 let filter
-let colors=["Izaberite boju","brown","gray","yellow"]
-let categories=["path","stone","wood"]
+
 
 // ⁡⁢⁣⁣LOCAL STORAGE⁡ //
 filter=
@@ -154,8 +172,6 @@ function SaveFilters(f,ck){
     for(color of colors){
         if(f==color){
             filter[0].color=color
-            console.log("FI= "+filter[0].color);
-
         }
     }
     for(category of categories){
@@ -164,13 +180,11 @@ function SaveFilters(f,ck){
             if(ck){
                 filter[1]=filter[1].filter(value=>value.category!=="sve")
                 filter[1].push({"category":category})  
-            console.log(filter[1]);
+            // console.log(filter[1]);
 
             }
             else{
                 if(filter[1].length==1){
-                    console.log("da");
-                    
                     filter[1]=filter[1].filter(value=>value.category!==f)
                     filter[1].push({"category":"sve"})       
                 }
@@ -180,8 +194,6 @@ function SaveFilters(f,ck){
                     console.log("ne");
 
                 }
-            console.log(filter[1]);
-
             }
 
         }

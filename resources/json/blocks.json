@@ -6,6 +6,12 @@
         "img":"dirt.png"
     },
     {
+        "name":"moss",
+        "color":"green",
+        "category":"path",
+        "img":"moss.png"
+    },
+    {
         "name":"stone",
         "color":"gray",
         "category":"stone",
