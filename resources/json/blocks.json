@@ -1,0 +1,26 @@
+[
+    {
+        "name":"dirt",
+        "color":"brown",
+        "category":"path",
+        "img":"dirt.png"
+    },
+    {
+        "name":"stone",
+        "color":"gray",
+        "category":"stone",
+        "img":"stone.png"
+    },
+    {
+        "name":"andesite",
+        "color":"gray",
+        "category":"stone",
+        "img":"andesite.png"
+    },
+    {
+        "name":"oak_planks",
+        "color":"yellow",
+        "category":"wood",
+        "img":"oak_planks.png"
+    }
+]
