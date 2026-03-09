@@ -1,11 +1,13 @@
+debugger;
 $("body").prepend(`
     <header>
         <ul>
             <li>Nesto</li>
             <li>Kae begi jos nesto</li>
-        </ul
+        </ul>
     </header>
 `)
+
 let blocks
 var con
 if(window.XMLHttpRequest){
@@ -56,8 +58,7 @@ for(block of blocks){
     }
     ima=false
 }
-let appText
-let displayedItem=[]
+let appTex
 function appSve(){
     
     $(".catalog").text("")
@@ -88,7 +89,7 @@ for(block of blocks){
     hasCategory=false
 }
 
-////////////    ⁡⁢⁣⁣USER INPUT⁡   //////////////
+////////////    ⁡⁢⁣⁣USER INPUT⁡⁡   //////////////
 $("#blocks").change(()=>{
     console.log($("#blocks").val());
     
@@ -96,66 +97,74 @@ $("#blocks").change(()=>{
 $("#color").change(function (){
     
     SaveFilters($(this).val(),null)
-    // console.log("CLO= "+$(this).val());
-    ShowItems()
+    // ShowItems()
 })
 
 $("#category :checkbox").change(function(){
     SaveFilters($(this).val(),$(this).is(":checked"))
-    ShowItems()
+    
+    // JSON.parse(localStorage.getItem("filter"))[0].color
+    // console.log("SAIODHJASG= "+$(this).is(":checked"));
+    // ShowItems()
     
 })
 
 
 ////////////  ⁡⁢⁣⁣FUNCTIONS⁡   ////////////////////////////
 function Append(){
-        appText=`<div class="item">`
-        appText+=`
-        <img src="resources/images/`+block.img+`"/>
-        <h2>`+block.name+`</h2>
-        <p>Color: `+block.color+`</p>
-        <p>Category: `+block.category+`</p>
-        `
-        appText+=`</div>`
-        $(".catalog").append(appText)
-
-
+    appText=`<div class="item">`
+    appText+=`
+    <img src="resources/images/`+block.img+`"/>
+    <h2>`+block.name+`</h2>
+    <p>Color: `+block.color+`</p>
+    <p>Category: `+block.category+`</p>
+    `
+    appText+=`</div>`
+    $(".catalog").append(appText)
+    // console.log("TRENUTNI BLOCK= "+JSON.stringify(block));
+    
 }
 
 function ShowItems(){
     $(".catalog").text("")
     let x=JSON.parse(localStorage.getItem("filter"))
+    console.log("X= "+JSON.stringify(x));
     
-    for(block of blocks){     
-
-        if(x[0].color=="Izaberite boju" && x[1][0].category=="sve"){
-           appSve()
-        //    console.log("SVE");
-        }
-        else{
-            // console.log(displayedItem);
+    let dodati=[]
+    let itemPostojiToggle=false
+    if(x[0].color!="Izaberite boju" || x[1][0].category!="sve"){
+        for(block of blocks){
             for(cat of x[1]){
                 if(block.category==cat.category){
-                    Append()
-                    console.log("--------------------");
-                    displayedItem.push(block.name)
+                    for(item of dodati){
+                        if(block.name==item) itemPostojiToggle=true
+                    }
+                    if(!itemPostojiToggle){
+                        Append()
+                        dodati.push(block.name)
+                    }
+                    itemPostojiToggle=false
+                    console.log("DODATI= "+dodati);
                 }
             }
-            ///////////// ⁡⁢⁣⁣OVDE SAM STAO⁡ /////////////
             if(block.color==x[0].color ){
-                Append()
-                displayedItem.push(block.name)
-            }
-
-            for(item of displayedItem){
-                console.log("OK= "+item);
-                if(block.name!=item){
+                for(item of dodati){
+                    if(block.name==item) itemPostojiToggle=true
                 }
-                // console.log("Item= "+item +" "+ block.name);
+                if(!itemPostojiToggle){
+                    Append()
+                    dodati.push(block.name)
+                }
+                itemPostojiToggle=false
             }
         }
     }
-    displayedItem=[]        
+    else{
+        appSve()
+        dodati=[]
+        console.log("SVE");
+
+    }
 }
 let filter
 
@@ -168,28 +177,28 @@ filter=
         {"category":"sve"}
     ]
 ]
-function SaveFilters(f,ck){
+function SaveFilters(value,ck){
     for(color of colors){
-        if(f==color){
+        if(value==color){
             filter[0].color=color
         }
     }
     for(category of categories){
-        if(f==category){
+        if(value==category){
             
             if(ck){
-                filter[1]=filter[1].filter(value=>value.category!=="sve")
+                filter[1]=filter[1].filter(v=>v.category!=="sve")
                 filter[1].push({"category":category})  
             // console.log(filter[1]);
 
             }
             else{
                 if(filter[1].length==1){
-                    filter[1]=filter[1].filter(value=>value.category!==f)
+                    filter[1]=filter[1].filter(v=>v.category!==value)
                     filter[1].push({"category":"sve"})       
                 }
                 else{
-                    filter[1]=filter[1].filter(value=>value.category!==f)
+                    filter[1]=filter[1].filter(v=>v.category!==value)
 
                     console.log("ne");
 
@@ -198,8 +207,9 @@ function SaveFilters(f,ck){
 
         }
     }
+    // console.log("FILTER=  "+JSON.stringify(filter));
     localStorage.setItem("filter",JSON.stringify(filter))
-    // console.log("X="+ x[1][0].category);
+    ShowItems()
 }
 
 SaveFilters()

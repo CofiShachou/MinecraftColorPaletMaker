@@ -28,5 +28,11 @@
         "color":"yellow",
         "category":"wood",
         "img":"oak_planks.png"
+    },
+    {
+        "name":"grass_block",
+        "color":"green",
+        "category":"path",
+        "img":"grass_block.png"
     }
 ]
