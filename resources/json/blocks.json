@@ -1,38 +1,170 @@
 [
     {
-        "name":"dirt",
-        "color":"brown",
+        "id":1,
+        "name":"Grass block",
+        "color":"green",
         "category":"path",
-        "img":"dirt.png"
+        "img":"grass_block.png"
     },
     {
-        "name":"moss",
+        "id":2,
+        "name":"Moss",
         "color":"green",
         "category":"path",
         "img":"moss.png"
     },
     {
-        "name":"stone",
-        "color":"gray",
-        "category":"stone",
-        "img":"stone.png"
+        "id":3,
+        "name":"Dirt",
+        "color":"brown",
+        "category":"path",
+        "img":"dirt.png"
     },
     {
-        "name":"andesite",
-        "color":"gray",
-        "category":"stone",
-        "img":"andesite.png"
+        "id":4,
+        "name":"Podzol",
+        "color":"brown",
+        "category":"path",
+        "img":"podzol.png"
     },
     {
-        "name":"oak_planks",
+        "id":5,
+        "name":"Spruce log",
+        "color":"brown",
+        "category":"wood",
+        "img":"spruce_log.png"
+    },
+    {
+        "id":6,
+        "name":"Spruce planks",
+        "color":"brown",
+        "category":"wood",
+        "img":"spruce_planks.png"
+    },
+    {
+        "id":7,
+        "name":"Barrel",
+        "color":"brown",
+        "category":"wood",
+        "img":"barrel.png"
+    },
+    {
+        "id":8,
+        "name":"Mud bricks",
+        "color":"brown",
+        "category":"stone",
+        "img":"mud_bricks.png"
+    },
+    {
+        "id":9,
+        "name":"Packed mud",
+        "color":"brown",
+        "category":"path",
+        "img":"packed_mud.png"
+    },
+    {
+        "id":10,
+        "name":"Oak log",
+        "color":"brown",
+        "category":"wood",
+        "img":"oak_log.png"
+    },
+    {
+        "id":11,
+        "name":"Oak planks",
         "color":"yellow",
         "category":"wood",
         "img":"oak_planks.png"
     },
     {
-        "name":"grass_block",
-        "color":"green",
+        "id":12,
+        "name":"Stone",
+        "color":"gray",
+        "category":"stone",
+        "img":"stone.png"
+    },
+    {
+        "id":13,
+        "name":"Andesite",
+        "color":"gray",
+        "category":"stone",
+        "img":"andesite.png"
+    },
+    {
+        "id":14,
+        "name":"Gravel",
+        "color":"gray",
         "category":"path",
-        "img":"grass_block.png"
+        "img":"gravel.png"
+    },
+    {
+        "id":15,
+        "name":"Cobblestone",
+        "color":"gray",
+        "category":"stone",
+        "img":"cobblestone.png"
+    },
+    {
+        "id":16,
+        "name":"Diorite",
+        "color":"white",
+        "category":"stone",
+        "img":"diorite.png"
+    },
+    {
+        "id":17,
+        "name":"Calcite",
+        "color":"white",
+        "category":"stone",
+        "img":"calcite.png"
+    },
+    {
+        "id":18,
+        "name":"Sand",
+        "color":"yellow",
+        "category":"path",
+        "img":"sand.png"
+    },
+    {
+        "id":19,
+        "name":"Cherry log",
+        "color":"pink",
+        "category":"wood",
+        "img":"cherry_log.png"
+    },
+    {
+        "id":20,
+        "name":"Cherry planks",
+        "color":"pink",
+        "category":"wood",
+        "img":"cherry_planks.png"
+    },
+    {
+        "id":21,
+        "name":"Cherry leaves",
+        "color":"pink",
+        "category":"path",
+        "img":"cherry_leaves.png"
+    },
+    {
+        "id":22,
+        "name":"Coral",
+        "color":"pink",
+        "category":"path",
+        "img":"coral.png"
+    },
+    {
+        "id":23,
+        "name":"Pink concrete",
+        "color":"pink",
+        "category":"stone",
+        "img":"pink_concrete.png"
+    },
+    {
+        "id":24,
+        "name":"Amethyst",
+        "color":"pink",
+        "category":"stone",
+        "img":"amethyst.png"
     }
 ]
