@@ -22,7 +22,7 @@ $("#learnMore").click(()=>{
         scrollTop: offsetTop - 100
     }, 500);
 })
-if(window.location.pathname=="/palletMaker.html"){
+if(window.location.pathname.includes("palletMaker.html")){
     let blocks
     let blocksStatic
     var con
@@ -492,8 +492,7 @@ $(document).on("click","#pallets>div",function(){
     
 })
 }
-
-if(window.location.pathname=="/gallery.html"){
+if(window.location.pathname.includes("gallery.html")){
     for(let i=1;i<=20;i++)
     {
         $("#galleryImages").append(`
