@@ -26,12 +26,16 @@ body {
 }
 /* ⁡⁢⁣⁣///////////////////////////////  HEADER /////////////////////////////⁡ */
 header{
-    /* background-color: var(--accent); */
+    position: fixed;
+    background-color: var(--accent);
+    border-bottom: 2px solid var(--secondary2);
+    z-index: 100;
 }
 header ul{
     display: flex;
     justify-content: center;
     gap: 1vw;
+    width: 100vw;
 }
 header ul li{
     padding: 1vw;
@@ -41,13 +45,44 @@ header ul li:hover a{
     /* text-shadow: 0px 0px 10px var(--background); */
 }
 header ul li a{
-    font-size: 1.5vw;
-    /* color: var(--primary); */
+    font-size: clamp(15px,1.5vw,1.5vw);
     color: var(--background);
     font-weight: bold;
-    /* color: var(--secondary); */
 }
 /* ⁡⁣⁣⁢///////////////////////////////////////////////////////////////////////⁡ */
+
+/* ⁡⁢⁣⁣///////////////////  FOOTER  /////////////////////////////⁡ */
+footer{
+    margin-top: 3vw;
+    display: flex;
+    width: 100vw;
+    background-color: var(--accent);
+    /* justify-content: space-evenly; */
+    justify-content: center;
+    gap: 5vw;
+    border-top: 2px solid var(--secondary2);
+}
+footer>div{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+footer>div>h3{
+    font-size: clamp(15px,2vw,2vw);
+    color: var(--secondary2);
+}
+footer a,footer p{
+    font-size: clamp(10px,1.5vw,1.5vw);
+    color: var(--background);
+    transition-duration: 0.3s;
+}
+footer a:hover,footer ul li:hover{
+    color: var(--primary);
+    transform: scale(105%);
+}
+/* ⁡⁣⁣⁢////////////////////////////////////////////////////////////////////////⁡ */
+
+
 /* ⁡⁢⁣⁣//////////////////////////////   INDEX    //////////////////////////⁡ */
 .hero{
     display: flex;
@@ -55,7 +90,7 @@ header ul li a{
     align-items: center;
     justify-content: center;
 
-    padding: 10vw 20vw;
+    padding: 20vw 20vw;
     width: 100vw;
 
     text-align: center;
@@ -63,6 +98,7 @@ header ul li a{
 
     box-sizing: border-box;
 }
+
 .hero h1{
     font-size: 3vw;
     color: var(--primary);
@@ -92,11 +128,69 @@ header ul li a{
     transform: translateY(0.5vw);
     transition-duration: 0.2s;
 }
+
+#main{
+    display: flex;
+    flex-direction: column;
+    padding: 0vw 10vw;
+    width: 100vw;
+    gap: 1vw;
+    box-sizing: border-box;
+}
+#main h2{
+    font-size: 2vw;
+    color: var(--secondary2);
+}
+#main p{
+    color: var(--primary);
+    font-size: clamp(15px,1.5vw,1.5vw);
+}
+#main p:first-of-type{
+    text-decoration: underline;
+}
+.guidImp{
+    color: var(--secondary2);
+    font-weight: bold;
+    text-decoration: underline;
+}
+.rightArrow{
+    color: var(--secondary2);
+}
+
+#sword{
+    position: absolute;
+    margin-left: -80vw;
+    margin-top: 30vw;
+    transform: rotateY(180deg);
+    transform: rotateZ(30deg);
+}
+#lotus{
+    position: absolute;
+    margin-left: 80vw;
+    margin-top: -40vw;
+    transform: rotateZ(-150deg);
+    /* z-index: 200; */
+}
+#fan{
+    position: absolute;
+    margin-left: 80vw;
+    margin-top: 30vw;
+    transform: rotateZ(-20deg);
+}
+#spider{
+    position: absolute;
+    margin-left: -80vw;
+    margin-top: -40vw;
+    transform: rotateZ(-80deg) rotateX(180deg);
+    /* transform:rotateY(180deg); */
+}
 /* ⁡⁣⁣⁢////////////////////////////////////////////////////////////////////////⁡ */
 
 /* ⁡⁢⁣⁣/////////////////////////////⁡⁡⁢⁣⁣/ PALLET MAKER  ////////////////////////////⁡ */
 .makerWrapper{
     display: flex;
+    padding-top: 5vw;
+
 }
 .invisibleId{
     display: none;
@@ -104,21 +198,50 @@ header ul li a{
 .filter{
     background-color: var(--secondary);
     padding: 20px;
+    border-radius: 10px 0px 0px 10px
+}
+.filter *{
+    color: var(--secondary2);
+}
+#fitlerForm{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
 }
 #colors{
     display: flex;
     flex-direction:column;
 }
+.filter label{
+   /* font-size: 15px; */
+    font-size: clamp(15px,1.5vw,1.5vw);
+}
 input[type="checkbox"]{
-    accent-color: var(--secondary2);
+    accent-color: var(--accent);
     width: 1vw;
     height: 1vw;
 }
-.filter *{
-    color: var(--secondary2);
+input[type="checkbox"]:checked{
+    outline: 1px solid var(--secondary2);
 }
+::placeholder{
+    color: var(--secondary);
+}
+option:checked{
+    background-color: var(--primary);
+    color: var(--accent);
+}
+select,input[type="text"]{
+    background-color: var(--accent);
+    font-size: clamp(15px,1vw,1vw);
+    padding: 0.2vw;
+    border-radius: 5px;
+    border: 1px solid var(--secondary2);
+}
+
 .catalog{
     background-color: var(--primary);
+    border-radius: 0px 10px 10px 0px
 }
 .page{
     background-color: var(--primary);
@@ -128,6 +251,7 @@ input[type="checkbox"]{
     grid-template-columns: repeat(6,13vw);
     grid-template-rows: repeat(2,auto);
     gap: 15px;
+    border-radius: 0px 10px 0px 0px
 }
 .pages{
     display: flex;
@@ -138,6 +262,9 @@ input[type="checkbox"]{
 .pages p{
     font-size: 30px;
     color: var(--accent);
+}
+#curentPage{
+    color: var(--background);
 }
 .pages p:hover{
     cursor: pointer;
@@ -198,10 +325,22 @@ input[type="checkbox"]{
 }
 
 /* ⁡⁣⁣⁢///////////////////////////////////////////////////////////////⁡ */
+/* //⁡⁢⁣⁣///////////////////         BLOCKS          ///////////////////////////⁡ */
 
+
+.item h2{
+    color: var(--accent);
+}
+.blockColor{
+    color: var(--secondary2);
+}
+.blockChategory{
+    color: var(--secondary);
+}
+/* //⁡⁣⁣⁢////////////////////////////////////////////////////////⁡ */
 /* ⁡⁢⁣⁣⁡⁢⁣⁣//////////////////   PALLETS ////////////////////////////⁡ */
 #popUp{
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 0%;
     width: 100vw;
@@ -214,12 +353,13 @@ input[type="checkbox"]{
     align-items: center;
 
     background-color: rgba(0,0,0,0.7);
+    z-index: 200;
 }
 #palletPicker{
     background-color: var(--primary);
     padding: 2vw;
     border-radius: 10px;
-    width: 50%;
+    width: 70%;
     height: 85%;
     display: flex;
     flex-direction: column;
@@ -250,8 +390,32 @@ input[type="checkbox"]{
 }
 #closePallets:hover{
     cursor: pointer;
+    color: var(--background);
+    background-color: rgb(56, 126, 56);
+    box-shadow: 0vw 0.5vw rgb(36, 80, 36);
 }
 #closePallets:active{
+    box-shadow: 0vw 0vw var(--secondary);
+    transform: translateY(0.5vw);
+    transition-duration: 0.2s;
+}
+#clearPallets{
+    background-color: var(--accent);
+    color: var(--secondary2);
+    padding: 1vw 1vw;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2vw;
+    box-shadow: 0vw 0.5vw var(--secondary);
+    margin-top: 1vw;
+}
+#clearPallets:hover{
+    cursor: pointer;
+    color: var(--background);
+    background-color: rgb(128, 41, 41);
+    box-shadow: 0vw 0.5vw rgb(74, 18, 18);
+}
+#clearPallets:active{
     box-shadow: 0vw 0vw var(--secondary);
     transform: translateY(0.5vw);
     transition-duration: 0.2s;
@@ -268,7 +432,10 @@ input[type="checkbox"]{
 }
 
 
-
+#error{
+    margin-top: 0.5vw;
+    color: red;
+}
 #createPallet{
     overflow: hidden;
     height: 0px;
@@ -276,6 +443,17 @@ input[type="checkbox"]{
     padding: 0px 0px;
     box-sizing: border-box;
     transition-duration: 1s;
+}
+#createPallet>div>label{
+    color: var(--accent);
+    font-size: clamp(15px,1.5vw,1.5vw);
+}
+#createPallet input[type="text"]{
+    border: 2px solid var(--primary);
+    transition-duration: 0.3s;
+}
+#createPallet input[type="text"]:focus{
+    border: 2px solid var(--accent);
 }
 
 
@@ -307,10 +485,10 @@ input[type="checkbox"]{
 #pallets{
     display: grid;
     grid-template-columns: repeat(3,30%);
-    grid-template-rows: repeat(2,45%);
+    grid-template-rows: repeat(2,25vh);
+    justify-content: space-evenly;
     gap: 1vw;
     width: 100%;
-    height: 100%;
     background-color: var(--background);
     border-radius: 10px;
     padding: 1vw;
@@ -322,8 +500,16 @@ input[type="checkbox"]{
     border-radius: 10px;
     padding: 0.5vw;
     display: flex;
+    /* height: 150%; */
     flex-direction: column;
     align-items: center;
+    outline: 2px solid var(--secondary2);
+    transition-duration: 0.3s;
+}
+#pallets>div:hover{
+    transform: scale(105%);
+    cursor: pointer;
+    outline: 2px solid var(--accent);
 }
 #pallets>div>p{
     font-size: clamp(10px,1.5vw,1.5vw);
@@ -332,15 +518,88 @@ input[type="checkbox"]{
 
 .miniPallets{
     display: grid;
-    grid-template-columns: repeat(3,3vw);
-    grid-template-rows: repeat(2,3vw);
+    grid-template-columns: repeat(3,3.5vw);
+    grid-template-rows: repeat(2,3.5vw);
 }
 .miniPallets img{
     /* width: 50px; */
     /* height: 50px; */
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 3vw;
+    height: 3vw;
     border: 2px solid var(--accent);
     border-radius: 10px;
 }
 /* ⁡⁣⁣⁢///////////////////////////////////////////////////////////////⁡ */
+
+/* ⁡⁢⁣⁣///////////////////     GALEY  ///////////////////////////⁡ */
+.galleryHero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 5vw;
+    width: 100vw;
+    text-align: center;
+    box-sizing: border-box;
+}
+.galleryHero h1{
+    font-size: 3vw;
+    color: var(--secondary2);
+}
+#galleryImages{
+    display: grid;
+    grid-template-columns: repeat(4,23vw);
+    grid-auto-rows: 13vw;
+    padding: 2vw;
+    gap: 1vw;
+}
+#galleryImages img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+
+
+/* ⁡⁣⁣⁢//////////////////////////////////////////////////////////////////////////////////⁡ */
+
+/* ⁡⁢⁣⁣//////////////////////    AUTHOR   ///////////////////////⁡ */
+.authorHero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10vw 20vw ;
+    width: 100vw;
+
+    box-sizing: border-box;
+}
+#authorWrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2vw;
+    border-radius: 10px;
+    width: 100vw;
+
+    background-color: var(--secondary2);
+}
+#authorImg{
+    width: 20vw;
+    border-radius: 10px;
+}
+#authorDesc{
+    padding: 3vw;
+}
+#authorDesc h1{
+    font-size: clamp(30px,3.5vw,3.5vw);
+    color: var(--accent);
+    margin-bottom: 2vw;
+}
+#authorDesc p{
+    font-size: clamp(30px,1.5vw,1.5vw);
+    color: var(--accent);
+}
+/* ⁡⁣⁣⁢///////////////////////////////////////////////////////////////////////////////////⁡ */

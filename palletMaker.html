@@ -14,25 +14,27 @@
 
     <div class="makerWrapper">
         <div class="filter">
-            <form action="">
+            <form id="fitlerForm">
                 <div>
                    <label for="name">Seach for name</label> 
-                   <input type="text" name="name" id="name">
+                   <input type="text" name="name" id="name" placeholder="Search">
                 </div>
+
                 <div id="colors">
                     <label for="color">Chose color:</label>
                     <select name="color" id="color">
                         <option>Chose color</option>
                     </select>
+                </div>
 
-                </div>
                 <div id="category">
-                    <lable for="chateogry">Chose chategory</lable>
-                    
+                    <label for="chateogry">Chose chategory</label>
                 </div>
-                <label for="sort">Chose sort filter</label>
-                <select name="sort" id="sort">
-                </select>
+                <div>
+                    <label for="sort">Chose sort filter</label>
+                    <select name="sort" id="sort">
+                    </select>
+                </div>
             </form>
         </div>
         <div id="popUp">
@@ -40,19 +42,26 @@
                 <h2>Chose the pallet to add block to:</h2>
                 <div id="palletsWrap">
                     <div id="createPallet">
-                        <label for="palletName">Name: </label>
-                        <input type="text" name="palletName" id="palletName" autocomplete="off"></input>
-                        <button class="createCancle" id="create">Create</button>
-                        <button class="createCancle" id="cancle">Cancle</button>
+                        <div>
+                            <label for="palletName">Name: </label>
+                            <input type="text" name="palletName" id="palletName" autocomplete="off"></input>
+                            <button class="createCancle" id="create">Create</button>
+                            <button class="createCancle" id="cancle">Cancle</button>
+                        </div>
+                        <p id="error"></p>
                     </div>
                     <div class="palletsHeader">
                         <h3>Pallets:</h3>
-                        <i class="fa-solid fa-plus" id="addPallet"></i>
+                        <div>
+                            
+                            <i class="fa-solid fa-plus" id="addPallet"></i>
+                        </div>
                     </div>
                     <div id="pallets">
                         
                     </div>
                     <button id="closePallets">Done</button>
+                    <button id="clearPallets">Clear pallets</button>
                 </div>
 
             </div>
