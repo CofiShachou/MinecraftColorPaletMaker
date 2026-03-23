@@ -12,7 +12,6 @@ $("body").prepend(`
 `)
 
 let activePageNumber=1
-
 //⁢⁣⁣///////////////////////    AJAX   ///////////////////////⁡
 $("#learnMore").click(()=>{
     console.log("DSDAS");
@@ -23,6 +22,9 @@ $("#learnMore").click(()=>{
     }, 500);
 })
 if(window.location.pathname.includes("palletMaker.html")){
+    if(localStorage.getItem("pallets")==null){
+        localStorage.setItem("pallets",JSON.stringify([]))
+    }
     let blocks
     let blocksStatic
     var con
