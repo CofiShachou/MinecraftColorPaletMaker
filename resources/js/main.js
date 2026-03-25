@@ -6,7 +6,7 @@ $("body").prepend(`
             <li><a href="palletMaker.html">Pallet maker</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="author.html">Author</a></li>
-            <li><a href="author.html">Documentation</a></li>
+            <li><a href="resources/dokumentacija.pdf">Documentation</a></li>
         </ul>
     </header>
 `)
@@ -369,7 +369,7 @@ $("#addPallet").click(()=>{
     setTimeout(() => {
         $("#createPallet").css({
             opacity:1,
-            height:"3vw",
+            height:"7vh",
         })
     }, 100);
 })
@@ -451,7 +451,7 @@ $(document).on("click","#create",function(){
             else{
                 $("#createPallet").css({
                     opacity:1,
-                    height:"4vw",
+                    height:"13vh",
                 })
                 $("#error").text("Ne mozete imati vise od 6 paleta")
             }
@@ -459,7 +459,7 @@ $(document).on("click","#create",function(){
     else{
         $("#createPallet").css({
             opacity:1,
-            height:"4vw",
+            height:"13vh",
         })
         $("#error").text("*Ime palete moze da sadrzi samo slova i brojeve*")
         
@@ -512,6 +512,7 @@ $("script:first-of-type").before(`
             <li><a href="palletMaker.html">Pallet maker</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="author.html">Author</a></li>
+            <li><a href="resources/dokumentacija.pdf">Documentation</a></li>
         </ul>
     </div>
 
